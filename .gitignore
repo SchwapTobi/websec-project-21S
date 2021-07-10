@@ -1,1 +1,15 @@
+# node modules & IDE
 node_modules/
+.idea/
+
+# compiled JS files
+**/*.js
+**/*.map
+
+# Logs
+logs
+*.log
+npm-debug.log*
+
+# Optional npm cache directory
+.npm
