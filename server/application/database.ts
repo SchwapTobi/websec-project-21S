@@ -1,7 +1,6 @@
 import _ from "lodash";
-/*
-    mock data
- */
+
+/** MOCK DATABASE */
 
 const database = new Map<string, UserData>();
 database.set('123', {id: '123', password: 'qX*!NCZk=BmJcc3*', name: 'John', role: 'admin', points: 9999});

@@ -1,5 +1,4 @@
 import express, {Request, Response} from "express";
-import {ENDPOINTS} from "../consts";
 import _ from "lodash";
 import {getUserData} from "../application/database";
 

@@ -1,7 +1,6 @@
 import express, {Request, Response} from "express";
 import _ from "lodash";
 import {getUserData} from "../application/database";
-import {test2} from "../application/examples";
 
 export module InsecureRouter {
 
