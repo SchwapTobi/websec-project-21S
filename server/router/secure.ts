@@ -5,7 +5,7 @@ export module SecureRouter {
 
     const router = express.Router();
 
-    router.get(ENDPOINTS.SECURE, async (req: Request, res: Response) => {
+    router.get('/test', async (req: Request, res: Response) => {
         res.send({status: 'secure test'});
     });
 

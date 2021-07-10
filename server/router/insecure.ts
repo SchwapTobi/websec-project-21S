@@ -5,7 +5,7 @@ export module InsecureRouter {
 
     const router = express.Router();
 
-    router.get(ENDPOINTS.INSECURE, async (req: Request, res: Response) => {
+    router.get('/test', async (req: Request, res: Response) => {
         res.send({status: 'insecure test'});
     });
 
