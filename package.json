@@ -1,0 +1,24 @@
+{
+  "name": "websecproject",
+  "version": "1.0.0",
+  "description": "Sample app for insecure deserialization",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/SchwapTobi/websec2021S.git"
+  },
+  "author": "Schwap/Reisinger",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/SchwapTobi/websec2021S/issues"
+  },
+  "homepage": "https://github.com/SchwapTobi/websec2021S#readme",
+  "dependencies": {
+    "JASON": "^0.1.3",
+    "express": "^4.17.1",
+    "lodash": "^4.17.21"
+  }
+}
