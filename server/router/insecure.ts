@@ -21,7 +21,6 @@ export module InsecureRouter {
             return;
         }
 
-        // TODO: parse cookie
         const parsedCookie = Buffer.from(cookie, 'base64').toString('ascii');
 
         //TODO: make it insecure
