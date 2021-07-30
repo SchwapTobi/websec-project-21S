@@ -1,14 +1,21 @@
-import {APPLICATION, BASEURL, ENDPOINTS} from "./consts";
+const APPLICATION = {
+    PORT: 8080,
+    URL: 'localhost',
+}
+
+const BASEURL = `${APPLICATION.URL}:${APPLICATION.PORT}`;
+
+const ENDPOINTS = {
+    SECURE: `/secure/`,
+    INSECURE: `/insecure/`,
+}
 
 const insecureRouter = require('./router/insecure');
 const secureRouter = require('./router/secure');
 const express = require('express');
-
-const bodyParser = require('body-parser');
 const app = express();
-app.use(express.json());
-app.use(bodyParser.json())
 
+app.use(express.json());
 app.use(ENDPOINTS.INSECURE, insecureRouter);
 app.use(ENDPOINTS.SECURE, secureRouter);
 

