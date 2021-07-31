@@ -1,7 +1,10 @@
-# Web Security 2021S
-Web Security Project - Sample app for insecure deserialization
+# Web Security 2021S - Insecure Deserialization
+Sample application showing the risks of insecure deserialization using Node.js.
 
-##Setup:
+⚠ This sample application contains unsafe code and should only be used for demonstration purposes ⚠
+
+Link to the project report: TODO
+## Setup:
 Make sure [node](https://nodejs.org/en/download/) and [typescript](https://www.typescriptlang.org/download) are installed.
 
 Clone the repository and install all dependencies:
@@ -9,5 +12,9 @@ Clone the repository and install all dependencies:
 
 Compile TS files by running `tsc` OR run `npm start` to transpile ts files and run the local server.
 
-##Tests:
+## Tests:
 To run the tests, make sure the local server is online, then run `npm test` or `tsc && jest`.
+
+In `insecure.test.ts` there are several tests to check the endpoints, as well as a specific test using the deserialization vulnerability to change the user's state.
+
+In `secure.test.ts`, the same tests demonstrate that simple changes in the way of parsing the cookie mitigate the risks of JSON deserialization in this demo application.
