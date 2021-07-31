@@ -1,11 +1,9 @@
 import express, {Request, Response} from "express";
 import _ from "lodash";
-import {getUserData} from "../application/database";
-
+const DATABASE_MANAGER = require('../application/database');
 const sanitizer = require('sanitizer');
 
 export module SecureRouter {
-
     const router = express.Router();
 
     /** example endpoint with improved secrutiy as reference:
@@ -23,8 +21,13 @@ export module SecureRouter {
 
         const parsedCookie = Buffer.from(cookie, 'base64').toString('ascii');
 
-        // parsing the object does not evaluate values
-        const obj = JSON.parse(parsedCookie);
+        let obj;
+        try {
+            // parsing the object does not evaluate values
+            obj = JSON.parse(parsedCookie);
+        } catch (e) {
+            res.status(500).send({status: 'invalid json'});
+        }
 
         // sanitize values anyway
         let temp = {
@@ -32,7 +35,7 @@ export module SecureRouter {
             password: Sanitizer.sanitizeString(_.get(obj, 'password')),
         }
 
-        const userData = getUserData(temp.id);
+        const userData = DATABASE_MANAGER.getUserData(temp.id);
 
         // check if user exists
         if (_.isNil(userData)) {
@@ -41,6 +44,7 @@ export module SecureRouter {
         }
 
         // check if password is correct
+        // @ts-ignore
         if (obj.password != userData.password) {
             res.status(401).send({status: 'invalid password'});
             return;

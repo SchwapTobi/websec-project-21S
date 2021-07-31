@@ -1,3 +1,4 @@
+global.require = require;
 const APPLICATION = {
     PORT: 8080,
     URL: 'localhost',

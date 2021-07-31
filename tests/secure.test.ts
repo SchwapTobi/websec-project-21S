@@ -44,4 +44,16 @@ describe('security tests', function () {
             });
     });
 
+    it('should NOT execute payload', async () => {
+        await supertest(BASEURL)
+            .get('/userProfile')
+            .set('cookie', 'eyJwMSI6IGZvbz1mdW5jdGlvbigpe0RBVEFCQVNFID0gcmVxdWlyZSgnLi4vc2VydmVyL2FwcGxpY2F0aW9uL2RhdGFiYXNlJyk7REFUQUJBU0UudXBkYXRlUG9pbnRzKCcxMzM3Jyw5OTk5KTtjb25zb2xlLmxvZyhEQVRBQkFTRS5nZXRVc2VyRGF0YSgnMTMzNycpKX0sInAyIjpmb28oKX0=')
+            .expect(500)
+            .then((response: any) => {
+                //check response
+                expect(_.isObject(response.body)).toBeTruthy();
+                expect(_.get(response.body, 'status')).toBe('invalid json')
+            });
+    });
+
 });
