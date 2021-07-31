@@ -1,5 +1,5 @@
 # Web Security 2021S - Insecure Deserialization
-Sample application showing the risks of insecure deserialization using Node.js.
+Sample application showing the risks of insecure deserialization using Node.js. Practical part for the course "KV Web Security" @JKU Linz.
 
 ⚠ This sample application contains unsafe code and should only be used for demonstration purposes ⚠
 
